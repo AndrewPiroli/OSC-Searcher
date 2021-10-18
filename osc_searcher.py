@@ -65,8 +65,9 @@ def try_read_cache() -> Union[None, List]:
             print("Cache too old.")
             return None
         with open(cache_file, "r") as cache_fp:
+            _ = json.load(cache_fp)
             print("Loaded cached package list.")
-            return json.load(cache_fp)
+            return _
     except FileNotFoundError:
         print("No package cache found.")
         return None
@@ -89,7 +90,7 @@ if __name__ == "__main__":
         del r
         assert isinstance(package_list, list), "Unexpected response from API"
         try:
-            with open(cache_file, "w+") as cache_fp:
+            with open(cache_file, "w") as cache_fp:
                 json.dump(package_list, cache_fp)
         except Exception:
             print("Failed to save package list to cache!")
