@@ -24,7 +24,7 @@ class OSCPackage:
     release_date: str
     controllers: str
     downloads: str
-    extra_directories: list
+    extra_directories: list =  dataclasses.field(default_factory=list)
     extracted: str
     icon_url: str
     updated: str
