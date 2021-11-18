@@ -43,7 +43,7 @@ cache_file = pathlib.Path(".") / "cache.json"
 # max cache age in seconds - 8 hours
 cache_max_age = 60 * 60 * 8
 
-def search(query: str, haystack: List[OSCPackage], limit: int = 5) -> List[Tuple[int, OSCPackage]]:
+def search(query: str, haystack: List[OSCPackage], limit: int = 5) -> List[OSCPackage]:
     assert limit > -1, "Cannot set limit below 0"
     results = list()
     for candidate in haystack:
