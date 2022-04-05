@@ -24,7 +24,6 @@ class OSCPackage:
     release_date: str
     controllers: str
     downloads: str
-    extra_directories: list =  dataclasses.field(default_factory=list)
     extracted: str
     icon_url: str
     updated: str
@@ -32,6 +31,7 @@ class OSCPackage:
     zip_size: str
     zip_url: str
     shop_title_version: str
+    extra_directories: list =  dataclasses.field(default_factory=list)
 
 api_base = "https://api.oscwii.org/v2/"
 api_host = "primary"
